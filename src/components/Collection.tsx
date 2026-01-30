@@ -1,19 +1,41 @@
-"use client";
-
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { useWallet } from '@/hooks/useWallet';
+import WalletModal from './WalletModal';
 
 const Collection = () => {
-    const [activeFilter, setActiveFilter] = React.useState('ALL');
+    const [activeFilter, setActiveFilter] = useState('ALL');
+    const { account } = useWallet();
+    const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
+    const [mintStatus, setMintStatus] = useState<Record<string, 'idle' | 'minting' | 'success'>>({});
 
     const collections = [
-        { name: 'AURORA LEGENDS', type: 'CORE • GENESIS', category: 'GENESIS', price: '0.45 ETH', usd: '$862.20', image: 'aurora-silver.png', featured: true },
-        { name: 'GLACIER GHOST', type: 'CORE • RARE', category: 'ELITE', price: '0.22 ETH', usd: '$421.50', image: 'glacier-white.png' },
-        { name: 'STEALTH OPS', type: 'CORE • EPIC', category: 'ELITE', price: '0.35 ETH', usd: '$670.60', image: 'stealth-black.png' },
-        { name: 'POLAR PULSE', type: 'CORE • RARE', category: 'ELITE', price: '0.18 ETH', usd: '$344.90', image: 'polar-gloss.png' },
-        { name: 'VOID SHADOW', type: 'CORE • EPIC', category: 'GENESIS', price: '0.55 ETH', usd: '$980.10', image: 'stealth-black.png' },
-        { name: 'ARCTIC STORM', type: 'CORE • RARE', category: 'ELITE', price: '0.28 ETH', usd: '$510.30', image: 'polar-white.png' }
+        { id: 'c1', name: 'AURORA LEGENDS', type: 'CORE • GENESIS', category: 'GENESIS', price: '0.45 ETH', usd: '$862.20', image: 'aurora-silver.png', featured: true },
+        { id: 'c2', name: 'GLACIER GHOST', type: 'CORE • RARE', category: 'ELITE', price: '0.22 ETH', usd: '$421.50', image: 'glacier-white.png' },
+        { id: 'c3', name: 'STEALTH OPS', type: 'CORE • EPIC', category: 'ELITE', price: '0.35 ETH', usd: '$670.60', image: 'stealth-black.png' },
+        { id: 'c4', name: 'POLAR PULSE', type: 'CORE • RARE', category: 'ELITE', price: '0.18 ETH', usd: '$344.90', image: 'polar-gloss.png' },
+        { id: 'c5', name: 'VOID SHADOW', type: 'CORE • EPIC', category: 'GENESIS', price: '0.55 ETH', usd: '$980.10', image: 'stealth-black.png' },
+        { id: 'c6', name: 'ARCTIC STORM', type: 'CORE • RARE', category: 'ELITE', price: '0.28 ETH', usd: '$510.30', image: 'polar-white.png' }
     ];
+
+    const handleMint = async (id: string) => {
+        if (!account) {
+            setIsWalletModalOpen(true);
+            return;
+        }
+
+        if (mintStatus[id] === 'minting' || mintStatus[id] === 'success') return;
+
+        setMintStatus(prev => ({ ...prev, [id]: 'minting' }));
+
+        // Simulate minting
+        setTimeout(() => {
+            setMintStatus(prev => ({ ...prev, [id]: 'success' }));
+            setTimeout(() => {
+                setMintStatus(prev => ({ ...prev, [id]: 'idle' }));
+            }, 3000);
+        }, 2000);
+    };
 
     const filteredCollections = activeFilter === 'ALL'
         ? collections
@@ -50,11 +72,18 @@ const Collection = () => {
                                         <h3 className="featured-collection-title-new">{item.name}<sup className="tm-symbol">™</sup></h3>
                                     </div>
                                     <div className="featured-action-section">
-                                        <button className="featured-mint-btn">
-                                            <span className="mint-arrow">↗</span>
+                                        <button
+                                            className="featured-mint-btn"
+                                            onClick={() => handleMint(item.id)}
+                                        >
+                                            <span className="mint-arrow">
+                                                {mintStatus[item.id] === 'minting' ? '⟳' : mintStatus[item.id] === 'success' ? '✓' : '↗'}
+                                            </span>
                                         </button>
                                         <div className="featured-mint-info">
-                                            <span className="mint-label">MINT NOW</span>
+                                            <span className="mint-label">
+                                                {mintStatus[item.id] === 'success' ? 'SUCCESS' : 'MINT NOW'}
+                                            </span>
                                             <span className="mint-price">{item.price}</span>
                                         </div>
                                     </div>
@@ -75,13 +104,23 @@ const Collection = () => {
                                         <span className="price-eth">{item.price}</span>
                                         <span className="price-usd">{item.usd}</span>
                                     </div>
-                                    <button className="quick-buy-btn">MINT</button>
+                                    <button
+                                        className={`quick-buy-btn ${mintStatus[item.id] === 'success' ? 'success' : ''}`}
+                                        onClick={() => handleMint(item.id)}
+                                    >
+                                        {mintStatus[item.id] === 'minting' ? '...' : mintStatus[item.id] === 'success' ? 'OWNED' : 'MINT'}
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     )
                 ))}
             </div>
+
+            <WalletModal
+                isOpen={isWalletModalOpen}
+                onClose={() => setIsWalletModalOpen(false)}
+            />
         </section>
     );
 };

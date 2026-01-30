@@ -31,8 +31,8 @@ export const useWallet = (): WalletState => {
         setError(null);
 
         try {
-            const provider = new ethers.BrowserProvider(window.ethereum);
-            const accounts = await provider.send("eth_requestAccounts", []);
+            // Request account access if needed
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
             if (accounts.length > 0) {
                 setAccount(accounts[0]);
@@ -51,14 +51,36 @@ export const useWallet = (): WalletState => {
     useEffect(() => {
         const checkConnection = async () => {
             if (window.ethereum) {
-                const provider = new ethers.BrowserProvider(window.ethereum);
-                const accounts = await provider.listAccounts();
-                if (accounts.length > 0) {
-                    setAccount(accounts[0].address);
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                    if (accounts.length > 0) {
+                        setAccount(accounts[0]);
+                    }
+                } catch (err) {
+                    console.error("Error checking connection:", err);
                 }
             }
         };
         checkConnection();
+    }, []);
+
+    // Listen for account changes
+    useEffect(() => {
+        if (window.ethereum) {
+            const handleAccountsChanged = (accounts: string[]) => {
+                if (accounts.length > 0) {
+                    setAccount(accounts[0]);
+                } else {
+                    setAccount(null);
+                }
+            };
+
+            window.ethereum.on('accountsChanged', handleAccountsChanged);
+
+            return () => {
+                window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
+            };
+        }
     }, []);
 
     return { account, isConnecting, error, connect };
