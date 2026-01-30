@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+  <style>
+    .stroke { fill: none; stroke: #ffffff; stroke-width: 40; stroke-linecap: round; opacity: 0.8; filter: url(#blur); }
+  </style>
+  <!-- Abstract "Graffiti" Strokes -->
+  <path class="stroke" d="M -50 100 Q 200 50 400 200 T 850 150" />
+  <path class="stroke" d="M 600 -50 Q 500 300 200 500" stroke-width="60" />
+  <path class="stroke" d="M 100 650 Q 300 400 700 300" stroke-width="30" />
+  <!-- Scratches -->
+  <path fill="none" stroke="#ffffff" stroke-width="2" d="M 50 50 L 150 150 M 60 40 L 160 140" opacity="0.4" />
+</svg>
