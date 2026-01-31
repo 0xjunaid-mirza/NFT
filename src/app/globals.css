@@ -220,11 +220,8 @@ button {
   position: relative;
   background: var(--bg-primary);
   background-image:
-    url('/graffiti.svg'),
-    radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.08) 0%, transparent 40%);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(0, 221, 119, 0.05) 0%, transparent 40%);
   padding: 100px var(--spacing-xl) 60px;
   min-height: 100vh;
   display: flex;
@@ -233,22 +230,21 @@ button {
   color: var(--text-primary);
 }
 
-/* 2. Northern Lights Animation */
+/* 2. Blurred Graffiti Background */
 .hero-section::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 50%,
-      rgba(124, 58, 237, 0.15),
-      rgba(0, 221, 119, 0.1),
-      transparent 50%);
-  z-index: 1;
-  animation: auroraMove 15s linear infinite;
-  pointer-events: none;
+  inset: 0;
+  background-image: url('/graffiti.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  opacity: 0.2;
+  /* Increased from 0.08 */
   filter: blur(60px);
+  /* Increased from 30px */
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-section::after {
@@ -262,17 +258,13 @@ button {
   z-index: 2;
 }
 
-@keyframes auroraMove {
-  0% {
-    transform: rotate(0deg) translate(0, 0);
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
 
-  50% {
-    transform: rotate(180deg) translate(50px, 50px);
-  }
-
-  100% {
-    transform: rotate(360deg) translate(0, 0);
+  to {
+    opacity: 1;
   }
 }
 
@@ -301,7 +293,8 @@ button {
 
 .hero-layout {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1.2fr 1.8fr 1fr;
+  /* More balanced ratio */
   gap: 40px;
   align-items: center;
   flex: 1;
@@ -432,7 +425,15 @@ button {
 
 .character-image-box img {
   max-width: 100%;
+  width: 540px;
+  /* Reduced from 700px for better balance */
   height: auto;
+  filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.15));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.character-image-box:hover img {
+  transform: scale(1.05);
 }
 
 .hero-thumbnails-panel {
