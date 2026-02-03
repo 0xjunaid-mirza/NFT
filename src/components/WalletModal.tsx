@@ -11,7 +11,7 @@ interface WalletModalProps {
 }
 
 const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
-    const { account, connect, disconnect } = useWallet();
+    const { account, walletType, connect, disconnect } = useWallet();
 
     const formatAddress = (addr: string) => {
         return `${addr.substring(0, 6)}...${addr.substring(addr.length - 4)}`;
@@ -19,15 +19,11 @@ const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
 
     const handleConnect = async (walletType: string) => {
         try {
-            if (walletType === 'metamask') {
-                await connect();
-                // Small delay to ensure state updates
-                setTimeout(() => {
-                    onClose();
-                }, 100);
-            } else {
-                alert("Coming Soon!");
-            }
+            await connect(walletType);
+            // Small delay to ensure state updates
+            setTimeout(() => {
+                onClose();
+            }, 100);
         } catch (error) {
             console.error("Connection error:", error);
         }
@@ -44,10 +40,18 @@ const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
                 <div className="connected-wallet-info">
                     <div className="wallet-connected-header">
                         <div className="wallet-icon-wrapper">
-                            <Image src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask" width={40} height={40} />
+                            <Image
+                                src={walletType === 'phantom'
+                                    ? "https://phantom.app/img/phantom-logo.svg"
+                                    : "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"
+                                }
+                                alt={walletType === 'phantom' ? "Phantom" : "MetaMask"}
+                                width={40}
+                                height={40}
+                            />
                         </div>
                         <div className="connected-wallet-details">
-                            <span className="wallet-name">METAMASK</span>
+                            <span className="wallet-name">{walletType === 'phantom' ? 'PHANTOM' : 'METAMASK'}</span>
                             <span className="wallet-address">{formatAddress(account)}</span>
                         </div>
                     </div>
@@ -68,11 +72,9 @@ const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
 
                     <button className="wallet-option-btn" onClick={() => handleConnect('phantom')}>
                         <div className="wallet-icon-wrapper">
-                            {/* Placeholder for Phantom icon */}
-                            <div className="placeholder-icon">P</div>
+                            <Image src="https://phantom.app/img/phantom-logo.svg" alt="Phantom" width={40} height={40} />
                         </div>
                         <span className="wallet-name">PHANTOM</span>
-                        <span className="wallet-badge">SOON</span>
                     </button>
 
                     <button className="wallet-option-btn" onClick={() => handleConnect('walletconnect')}>
