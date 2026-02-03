@@ -217,11 +217,20 @@ button {
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-  clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px);
+  clip-path: polygon(
+    6px 0,
+    calc(100% - 6px) 0,
+    100% 6px,
+    100% 100%,
+    0 100%,
+    0 6px
+  );
 }
 
 .connect-btn:hover {
-  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6), 0 0 40px rgba(124, 58, 237, 0.4);
+  box-shadow:
+    0 8px 30px rgba(0, 255, 136, 0.6),
+    0 0 40px rgba(124, 58, 237, 0.4);
   transform: translateY(-3px) scale(1.02);
 }
 
@@ -397,7 +406,14 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
+  clip-path: polygon(
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    0 100%,
+    0 8px
+  );
 }
 
 .mint-action-btn .btn-icon {
@@ -407,7 +423,9 @@ button {
 
 .mint-action-btn:hover {
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.7), 0 0 50px rgba(0, 255, 136, 0.5);
+  box-shadow:
+    0 12px 40px rgba(124, 58, 237, 0.7),
+    0 0 50px rgba(0, 255, 136, 0.5);
 }
 
 .trait-display,
@@ -615,7 +633,14 @@ button {
   letter-spacing: 1px;
   font-weight: 600;
   transition: all 0.3s ease;
-  clip-path: polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px);
+  clip-path: polygon(
+    4px 0,
+    calc(100% - 4px) 0,
+    100% 4px,
+    100% 100%,
+    0 100%,
+    0 4px
+  );
 }
 
 .filter-btn:hover,
@@ -623,7 +648,9 @@ button {
   background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   color: var(--bg-dark);
   border-color: var(--accent-primary);
-  box-shadow: 0 6px 25px rgba(0, 255, 136, 0.5), 0 0 35px rgba(124, 58, 237, 0.3);
+  box-shadow:
+    0 6px 25px rgba(0, 255, 136, 0.5),
+    0 0 35px rgba(124, 58, 237, 0.3);
   transform: translateY(-2px);
 }
 
@@ -637,6 +664,14 @@ button {
   letter-spacing: 1px;
   font-weight: 600;
   transition: all 0.3s ease;
+  clip-path: polygon(
+    3px 0,
+    calc(100% - 3px) 0,
+    100% 3px,
+    100% 100%,
+    0 100%,
+    0 3px
+  );
 }
 
 .view-all-btn:hover {
@@ -762,7 +797,9 @@ button {
 .featured-mint-btn:hover {
   background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   border-color: var(--accent-primary);
-  box-shadow: 0 6px 25px rgba(0, 255, 136, 0.5), 0 0 35px rgba(124, 58, 237, 0.3);
+  box-shadow:
+    0 6px 25px rgba(0, 255, 136, 0.5),
+    0 0 35px rgba(124, 58, 237, 0.3);
   transform: scale(1.05);
 }
 
@@ -974,11 +1011,20 @@ button {
   font-weight: 800;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-  clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
+  clip-path: polygon(
+    4px 0,
+    calc(100% - 4px) 0,
+    100% 4px,
+    100% 100%,
+    0 100%,
+    0 4px
+  );
 }
 
 .quick-buy-btn:hover {
-  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.7), 0 0 40px rgba(124, 58, 237, 0.4);
+  box-shadow:
+    0 8px 30px rgba(0, 255, 136, 0.7),
+    0 0 40px rgba(124, 58, 237, 0.4);
   transform: translateY(-3px) scale(1.02);
 }
 
