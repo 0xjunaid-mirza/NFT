@@ -242,7 +242,7 @@ button {
   /* Increased from 60% */
   opacity: 0.2;
   /* Increased from 0.08 */
-  filter: blur(10px);
+  filter: blur(15px);
   /* Reduced from 60px */
   z-index: 1;
   pointer-events: none;
@@ -621,7 +621,8 @@ button {
 
 .new-collection-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  grid-template-columns: 1.55fr 1fr 1fr 1fr;
+  /* Increased from 1.3fr to make AURORA LEGENDS card bigger */
   gap: var(--spacing-md);
 }
 
