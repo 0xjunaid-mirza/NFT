@@ -35,10 +35,11 @@ export const useWallet = (): WalletState => {
             // Request account access if needed
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
-            if (accounts.length > 0) {
+            if (accounts && accounts.length > 0 && accounts[0]) {
                 setAccount(accounts[0]);
             } else {
                 setError("No accounts found.");
+                setAccount(null);
             }
         } catch (err: any) {
             console.error(err);
@@ -46,33 +47,18 @@ export const useWallet = (): WalletState => {
         } finally {
             setIsConnecting(false);
         }
+    }, []);
+
     const disconnect = useCallback(() => {
         setAccount(null);
         setError(null);
-    }, []);
-
-    // Auto-connect if already authorized
-    useEffect(() => {
-        const checkConnection = async () => {
-            if (window.ethereum) {
-                try {
-                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-                    if (accounts.length > 0) {
-                        setAccount(accounts[0]);
-                    }
-                } catch (err) {
-                    console.error("Error checking connection:", err);
-                }
-            }
-        };
-        checkConnection();
     }, []);
 
     // Listen for account changes
     useEffect(() => {
         if (window.ethereum) {
             const handleAccountsChanged = (accounts: string[]) => {
-                if (accounts.length > 0) {
+                if (accounts && accounts.length > 0 && accounts[0]) {
                     setAccount(accounts[0]);
                 } else {
                     setAccount(null);

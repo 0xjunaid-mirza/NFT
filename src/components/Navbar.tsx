@@ -44,7 +44,7 @@ const Navbar = () => {
                     onClick={handleConnectClick}
                     disabled={isConnecting}
                 >
-                    {isConnecting ? "..." : account ? formatAddress(account) : "CONNECT"}
+                    {isConnecting ? "CONNECTING..." : (account && account.length > 0) ? formatAddress(account) : "CONNECT"}
                 </button>
 
                 {/* Mobile Menu Toggle */}
