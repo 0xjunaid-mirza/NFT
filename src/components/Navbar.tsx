@@ -5,21 +5,33 @@ import { useWallet } from '@/hooks/useWallet';
 import WalletModal from './WalletModal';
 
 const Navbar = () => {
-    const { account, isConnecting } = useWallet();
+    const { account, isConnecting, disconnect } = useWallet();
     const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
+    const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const formatAddress = (addr: string) => {
         return `${addr.substring(0, 6)}...${addr.substring(addr.length - 4)}`;
     };
 
-    const handleConnectClick = () => {
-        setIsWalletModalOpen(true);
+    const handleWalletClick = () => {
+        if (account) {
+            // If connected, show disconnect modal
+            setIsDisconnectModalOpen(true);
+        } else {
+            // If not connected, show connect modal
+            setIsWalletModalOpen(true);
+        }
+    };
+
+    const handleDisconnect = () => {
+        disconnect();
+        setIsDisconnectModalOpen(false);
     };
 
     return (
         <nav className="nav animate-fade-in">
-            <div className="logo">FPRN</div>
+            <div className="logo">CityscAPE</div>
             {/* Desktop Links */}
             <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
                 <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>[ HOME ]</a></li>
@@ -41,10 +53,10 @@ const Navbar = () => {
                 </div>
                 <button
                     className="connect-btn"
-                    onClick={handleConnectClick}
+                    onClick={handleWalletClick}
                     disabled={isConnecting}
                 >
-                    {isConnecting ? "CONNECTING..." : (account && account.length > 0) ? formatAddress(account) : "CONNECT"}
+                    {isConnecting ? "CONNECTING..." : account ? formatAddress(account) : "CONNECT"}
                 </button>
 
                 {/* Mobile Menu Toggle */}
@@ -62,9 +74,36 @@ const Navbar = () => {
             </div>
 
             <WalletModal
+                key={account ? 'connected' : 'disconnected'}
                 isOpen={isWalletModalOpen}
                 onClose={() => setIsWalletModalOpen(false)}
             />
+
+            {/* Disconnect Modal */}
+            {isDisconnectModalOpen && (
+                <div className="modal-overlay" onClick={() => setIsDisconnectModalOpen(false)}>
+                    <div className="modal-content disconnect-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h2>DISCONNECT WALLET</h2>
+                            <button className="modal-close" onClick={() => setIsDisconnectModalOpen(false)}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <p>Are you sure you want to disconnect your wallet?</p>
+                            <div className="wallet-address-display">
+                                <span>{account ? formatAddress(account) : ''}</span>
+                            </div>
+                        </div>
+                        <div className="modal-actions">
+                            <button className="modal-btn cancel-btn" onClick={() => setIsDisconnectModalOpen(false)}>
+                                CANCEL
+                            </button>
+                            <button className="modal-btn disconnect-btn" onClick={handleDisconnect}>
+                                DISCONNECT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };

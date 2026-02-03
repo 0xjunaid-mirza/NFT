@@ -18,11 +18,18 @@ const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
     };
 
     const handleConnect = async (walletType: string) => {
-        if (walletType === 'metamask') {
-            await connect();
-            onClose();
-        } else {
-            alert("Coming Soon!");
+        try {
+            if (walletType === 'metamask') {
+                await connect();
+                // Small delay to ensure state updates
+                setTimeout(() => {
+                    onClose();
+                }, 100);
+            } else {
+                alert("Coming Soon!");
+            }
+        } catch (error) {
+            console.error("Connection error:", error);
         }
     };
 

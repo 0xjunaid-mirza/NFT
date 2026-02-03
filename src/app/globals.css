@@ -1549,6 +1549,76 @@ button {
   letter-spacing: 1px;
 }
 
+/* Disconnect Modal Styles */
+.disconnect-modal {
+  max-width: 400px;
+}
+
+.disconnect-modal .modal-body {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.disconnect-modal .modal-body p {
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.wallet-address-display {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+}
+
+.wallet-address-display span {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent-primary);
+  letter-spacing: 1px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.modal-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.disconnect-btn {
+  background: var(--accent-primary);
+  color: #000;
+}
+
+.disconnect-btn:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-1px);
+}
+
 .wallet-actions {
   display: flex;
   justify-content: center;
@@ -2026,5 +2096,21 @@ button {
     padding-bottom: 60px;
     /* Reduced bottom padding */
     /* Watch padding */
+  }
+
+  /* Mobile Connect Button */
+  .connect-btn {
+    padding: 6px 16px;
+    font-size: 10px;
+    margin-right: 10px;
+    order: -1; /* Move to the left of hamburger menu */
+  }
+
+  .mobile-menu-toggle {
+    order: 1; /* Keep hamburger menu on the right */
+  }
+
+  .nav-actions {
+    gap: 8px; /* Reduce gap on mobile */
   }
 }
