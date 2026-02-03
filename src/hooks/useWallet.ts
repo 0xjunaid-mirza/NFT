@@ -8,6 +8,7 @@ export interface WalletState {
     isConnecting: boolean;
     error: string | null;
     connect: () => Promise<void>;
+    disconnect: () => void;
 }
 
 declare global {
@@ -45,6 +46,9 @@ export const useWallet = (): WalletState => {
         } finally {
             setIsConnecting(false);
         }
+    const disconnect = useCallback(() => {
+        setAccount(null);
+        setError(null);
     }, []);
 
     // Auto-connect if already authorized
@@ -83,5 +87,5 @@ export const useWallet = (): WalletState => {
         }
     }, []);
 
-    return { account, isConnecting, error, connect };
+    return { account, isConnecting, error, connect, disconnect };
 };

@@ -14,9 +14,7 @@ const Navbar = () => {
     };
 
     const handleConnectClick = () => {
-        if (!account) {
-            setIsWalletModalOpen(true);
-        }
+        setIsWalletModalOpen(true);
     };
 
     return (
