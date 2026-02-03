@@ -20,10 +20,7 @@ const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
     const handleConnect = async (walletType: string) => {
         try {
             await connect(walletType);
-            // Small delay to ensure state updates
-            setTimeout(() => {
-                onClose();
-            }, 100);
+            onClose();
         } catch (error) {
             console.error("Connection error:", error);
         }

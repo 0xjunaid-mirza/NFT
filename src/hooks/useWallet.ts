@@ -43,7 +43,8 @@ export const useWallet = (): WalletState => {
         }
     }, []);
 
-    const connect = useCallback(async (walletType: string = 'metamask') => {
+    const connect = async (walletType: string = 'metamask') => {
+
         if (walletType === 'metamask') {
             if (typeof window === 'undefined' || !window.ethereum) {
                 setError("MetaMask is not installed. Please install it to connect.");
@@ -100,8 +101,7 @@ export const useWallet = (): WalletState => {
         } finally {
             setIsConnecting(false);
         }
-    }, []);
-
+    };
     const disconnect = useCallback(() => {
         setAccount(null);
         setWalletType(null);

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useWallet } from '@/hooks/useWallet';
 import WalletModal from './WalletModal';
 
@@ -9,6 +9,12 @@ const Navbar = () => {
     const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
     const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [renderKey, setRenderKey] = useState(0);
+
+    // Force re-render when account changes
+    useEffect(() => {
+        setRenderKey(prev => prev + 1);
+    }, [account]);
 
     const formatAddress = (addr: string) => {
         return `${addr.substring(0, 6)}...${addr.substring(addr.length - 4)}`;
@@ -52,6 +58,7 @@ const Navbar = () => {
                     </a>
                 </div>
                 <button
+                    key={`connect-btn-${renderKey}`}
                     className="connect-btn"
                     onClick={handleWalletClick}
                     disabled={isConnecting}
