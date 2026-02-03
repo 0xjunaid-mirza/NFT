@@ -168,7 +168,7 @@ const Collection = () => {
               className="featured-collection-card animate-slide-up"
             >
               <Image
-                src={`/${item.image}`}
+                src={item.image}
                 alt={item.name}
                 width={600}
                 height={800}
@@ -212,7 +212,7 @@ const Collection = () => {
             <div key={idx} className="collection-product-card animate-slide-up">
               <div className="nft-image-wrapper">
                 <Image
-                  src={`/${item.image}`}
+                  src={item.image}
                   alt={item.name}
                   width={400}
                   height={500}

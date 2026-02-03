@@ -191,7 +191,7 @@ const Hero = () => {
         <div className="hero-character-display animate-fade-in delay-3">
           <div className="character-image-box">
             <Image
-              src={`/${selectedNft.image}`}
+              src={selectedNft.image}
               alt="Featured Product"
               width={500}
               height={700}
@@ -212,7 +212,7 @@ const Hero = () => {
                 onClick={() => handleThumbnailClick(index)}
               >
                 <Image
-                  src={`/${nft.image}`}
+                  src={nft.image}
                   alt={nft.name}
                   width={300} /* Request larger image for sharpness */
                   height={400}
