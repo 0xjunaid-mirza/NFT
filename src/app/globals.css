@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -12,26 +12,26 @@ html {
 /* ===== CSS VARIABLES ===== */
 :root {
   /* NFT Theme Colors (Cyber Neon) */
-  --bg-primary: #05010D;
+  --bg-primary: #05010d;
   --bg-secondary: #0a081a;
   --bg-card: #120d26;
   --bg-card-hover: #1d153d;
   --bg-dark: #020005;
-  --text-primary: #EDE9FE;
+  --text-primary: #ede9fe;
   --text-secondary: #c4b5fd;
   --text-muted: #8b5cf6;
-  --accent-primary: #7C3AED;
-  --accent-secondary: #22D3EE;
-  --accent-purple: #A855F7;
+  --accent-primary: #7c3aed;
+  --accent-secondary: #22d3ee;
+  --accent-purple: #a855f7;
   --accent-gold: #fbbf24;
   --border-color: rgba(124, 58, 237, 0.2);
   --border-radius: 16px;
   --border-radius-sm: 8px;
 
   /* Typography */
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
 
   /* Spacing */
   --spacing-xs: 8px;
@@ -52,9 +52,21 @@ body {
   font-family: var(--font-body);
   background: var(--bg-primary);
   background-image:
-    radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(0, 221, 119, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 60%);
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(124, 58, 237, 0.12) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(0, 221, 119, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(168, 85, 247, 0.05) 0%,
+      transparent 60%
+    );
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -75,7 +87,11 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(
+    to bottom,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   border-radius: 4px;
   border: 2px solid var(--bg-dark);
 }
@@ -126,25 +142,17 @@ button {
   list-style: none;
 }
 
-.nav-links button {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  padding: 8px 16px;
-  border-radius: 12px;
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.nav-links button:hover {
-  background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
-  color: var(--bg-dark);
-  border-color: var(--accent-primary);
-  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+.nav-links a:hover {
+  color: #ffffff;
 }
 
 .nav-actions {
@@ -203,18 +211,18 @@ button {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1px;
-  border-radius: 12px;
   font-weight: 700;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px);
 }
 
 .connect-btn:hover {
-  box-shadow: 0 6px 25px rgba(0, 255, 136, 0.5);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6), 0 0 40px rgba(124, 58, 237, 0.4);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .connect-btn:active {
@@ -227,8 +235,16 @@ button {
   position: relative;
   background: var(--bg-primary);
   background-image:
-    radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(0, 221, 119, 0.05) 0%, transparent 40%);
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(124, 58, 237, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(0, 221, 119, 0.05) 0%,
+      transparent 40%
+    );
   padding: 100px var(--spacing-xl) 60px;
   min-height: 100vh;
   display: flex;
@@ -242,7 +258,7 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('/graffiti.svg');
+  background-image: url("/graffiti.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 150%;
@@ -277,7 +293,7 @@ button {
 }
 
 /* Ensure content is above background effects */
-.hero-section>* {
+.hero-section > * {
   position: relative;
   z-index: 10;
   /* Increased from 2 to be clearly above noise (z:2) and graffiti (z:1) */
@@ -370,7 +386,6 @@ button {
   padding: 15px 40px;
   background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   color: var(--bg-primary);
-  border-radius: 30px;
   font-family: var(--font-display);
   font-size: 24px;
   letter-spacing: 1px;
@@ -382,6 +397,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
 }
 
 .mint-action-btn .btn-icon {
@@ -390,8 +406,8 @@ button {
 }
 
 .mint-action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.7), 0 0 50px rgba(0, 255, 136, 0.5);
 }
 
 .trait-display,
@@ -538,7 +554,9 @@ button {
   align-items: center;
   justify-content: center;
   padding: 6px;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
 .social-box:hover {
@@ -592,12 +610,12 @@ button {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  border-radius: 12px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
   transition: all 0.3s ease;
+  clip-path: polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px);
 }
 
 .filter-btn:hover,
@@ -605,7 +623,8 @@ button {
   background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   color: var(--bg-dark);
   border-color: var(--accent-primary);
-  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 255, 136, 0.5), 0 0 35px rgba(124, 58, 237, 0.3);
+  transform: translateY(-2px);
 }
 
 .view-all-btn {
@@ -613,7 +632,6 @@ button {
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  border-radius: 12px;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -624,6 +642,8 @@ button {
 .view-all-btn:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+  transform: translateY(-1px);
 }
 
 .new-collection-grid {
@@ -638,15 +658,29 @@ button {
   overflow: visible;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.03);
-  clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+  clip-path: polygon(
+    30px 0,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%,
+    0 30px
+  );
 }
 
 .featured-collection-card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.03);
-  clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+  clip-path: polygon(
+    30px 0,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%,
+    0 30px
+  );
   border: 1px solid var(--border-color);
   z-index: -1;
 }
@@ -668,7 +702,11 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -724,7 +762,8 @@ button {
 .featured-mint-btn:hover {
   background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   border-color: var(--accent-primary);
-  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 255, 136, 0.5), 0 0 35px rgba(124, 58, 237, 0.3);
+  transform: scale(1.05);
 }
 
 .mint-arrow {
@@ -763,16 +802,30 @@ button {
   background: rgba(255, 255, 255, 0.03);
   overflow: visible;
   cursor: pointer;
-  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
   position: relative;
 }
 
 .collection-product-card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.03);
-  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
   border: 1px solid var(--border-color);
   z-index: -1;
 }
@@ -915,17 +968,18 @@ button {
   padding: 8px 20px;
   background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   color: var(--bg-dark);
-  border-radius: 8px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 800;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+  clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
 }
 
 .quick-buy-btn:hover {
-  box-shadow: 0 6px 25px rgba(0, 255, 136, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.7), 0 0 40px rgba(124, 58, 237, 0.4);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .owner-avatar {
@@ -962,16 +1016,30 @@ button {
   background: rgba(255, 255, 255, 0.03);
   overflow: visible;
   cursor: pointer;
-  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
   position: relative;
 }
 
 .showcase-card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.03);
-  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
   border: 1px solid var(--border-color);
   z-index: -1;
 }
@@ -1010,7 +1078,7 @@ button {
 }
 
 .roadmap-phase::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: rgba(0, 255, 136, 0.2);
@@ -1021,7 +1089,14 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 30px;
   min-height: 250px;
-  clip-path: polygon(25px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%, 0 25px);
+  clip-path: polygon(
+    25px 0,
+    100% 0,
+    100% calc(100% - 25px),
+    calc(100% - 25px) 100%,
+    0 100%,
+    0 25px
+  );
   position: relative;
   transition: border-color 0.3s ease;
 }
@@ -1053,7 +1128,7 @@ button {
 }
 
 .roadmap-list li::before {
-  content: '→';
+  content: "→";
   position: absolute;
   left: 0;
   color: var(--accent-primary);
@@ -1074,7 +1149,14 @@ button {
   margin-bottom: 15px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.02);
-  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  clip-path: polygon(
+    15px 0,
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    0 100%,
+    0 15px
+  );
   transition: border-color 0.3s ease;
 }
 
@@ -1097,6 +1179,12 @@ button {
   letter-spacing: 1.5px;
   cursor: pointer;
   text-align: left;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-primary);
 }
 
 .faq-toggle {
@@ -1108,7 +1196,10 @@ button {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease;
+  transition:
+    max-height 0.4s ease-out,
+    opacity 0.4s ease-out,
+    padding 0.4s ease;
   padding: 0 20px;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
@@ -1194,7 +1285,9 @@ button {
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .animate-on-scroll.visible {
@@ -1252,17 +1345,31 @@ button {
   padding: 40px;
   position: relative;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-  clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+  clip-path: polygon(
+    30px 0,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%,
+    0 30px
+  );
   /* Removed animation */
 }
 
 .modal-content::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   /* Faint roadmap-style border */
-  clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
+  clip-path: polygon(
+    30px 0,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%,
+    0 30px
+  );
   pointer-events: none;
   z-index: 10;
   transition: border-color 0.3s ease;
@@ -1321,7 +1428,14 @@ button {
   transition: all 0.3s ease;
   position: relative;
   /* Use a slightly looser clip-path or rely on the pseudo-element */
-  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  clip-path: polygon(
+    15px 0,
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    0 100%,
+    0 15px
+  );
   padding: 20px 25px;
   /* Restoration for content spacing */
 }
@@ -1332,12 +1446,19 @@ button {
    We'll inset it by 1px to ensure it sits inside the clip region. 
 */
 .wallet-option-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   /* Match parent clip-path exactly */
-  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  clip-path: polygon(
+    15px 0,
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    0 100%,
+    0 15px
+  );
   pointer-events: none;
   z-index: 10;
   transition: border-color 0.3s ease;
@@ -1403,7 +1524,6 @@ button {
   opacity: 0.8;
   transform: translateY(-5px);
 }
-
 
 .wallet-icon-wrapper {
   width: 40px;
@@ -1551,7 +1671,6 @@ button {
 }
 
 @media (max-width: 768px) {
-
   /* Navbar Mobile */
   .nav {
     padding: 0 20px;
@@ -1759,11 +1878,25 @@ button {
     max-width: 90%;
     padding: 25px;
     /* Reduced padding */
-    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+    clip-path: polygon(
+      20px 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%,
+      0 20px
+    );
   }
 
   .modal-content::before {
-    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+    clip-path: polygon(
+      20px 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%,
+      0 20px
+    );
   }
 
   .wallet-option-btn {
