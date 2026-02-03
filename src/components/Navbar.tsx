@@ -24,10 +24,10 @@ const Navbar = () => {
             <div className="logo">FPRN</div>
             {/* Desktop Links */}
             <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-                <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>[ HOME ]</a></li>
-                <li><a href="#collection" onClick={() => setIsMobileMenuOpen(false)}>[ COLLECTION ]</a></li>
-                <li><a href="#roadmap" onClick={() => setIsMobileMenuOpen(false)}>[ ROADMAP ]</a></li>
-                <li><a href="#faq" onClick={() => setIsMobileMenuOpen(false)}>[ FAQS ]</a></li>
+                <li><button className="nav-link-btn" onClick={() => setIsMobileMenuOpen(false)}>[ HOME ]</button></li>
+                <li><button className="nav-link-btn" onClick={() => setIsMobileMenuOpen(false)}>[ COLLECTION ]</button></li>
+                <li><button className="nav-link-btn" onClick={() => setIsMobileMenuOpen(false)}>[ ROADMAP ]</button></li>
+                <li><button className="nav-link-btn" onClick={() => setIsMobileMenuOpen(false)}>[ FAQS ]</button></li>
             </ul>
             <div className="nav-actions">
                 <div className="nav-socials desktop-only">

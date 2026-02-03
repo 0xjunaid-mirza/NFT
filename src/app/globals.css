@@ -126,17 +126,25 @@ button {
   list-style: none;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
+.nav-links button {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: 12px;
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 1px;
-  transition: color 0.3s ease;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.nav-links a:hover {
-  color: #ffffff;
+.nav-links button:hover {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
+  color: var(--bg-dark);
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
 }
 
 .nav-actions {
@@ -189,25 +197,24 @@ button {
 
 .connect-btn {
   padding: 8px 24px;
-  background: rgba(124, 58, 237, 0.1);
-  border: 1px solid var(--accent-primary);
-  color: var(--accent-primary);
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
+  border: none;
+  color: var(--bg-primary);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 1px;
-  border-radius: 4px;
-  /* Slightly squared for cyber feel */
+  border-radius: 12px;
   font-weight: 700;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
 }
 
 .connect-btn:hover {
-  background: var(--accent-primary);
-  color: var(--bg-primary);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 6px 25px rgba(0, 255, 136, 0.5);
+  transform: translateY(-2px);
 }
 
 .connect-btn:active {
@@ -705,9 +712,8 @@ button {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -716,14 +722,19 @@ button {
 }
 
 .featured-mint-btn:hover {
-  background: var(--accent-primary);
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   border-color: var(--accent-primary);
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
 }
 
 .mint-arrow {
   font-size: 24px;
   color: var(--text-primary);
   font-weight: 700;
+}
+
+.featured-mint-btn:hover .mint-arrow {
+  color: var(--bg-dark);
 }
 
 .featured-mint-info {
