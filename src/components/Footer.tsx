@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="footer animate-fade-in delay-4">
             <div className="footer-top">
-                <div className="footer-logo">FPRN</div>
+                <div className="footer-logo">CityScape</div>
                 <div className="footer-links">
                     <div className="footer-column">
                         <h4>EXPLORE</h4>
@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; 2026 FPRN STUDIOS. ALL RIGHTS RESERVED.</p>
+                <p>&copy; 2026 CityScape STUDIOS. ALL RIGHTS RESERVED.</p>
             </div>
         </footer>
     );

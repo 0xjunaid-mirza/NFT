@@ -75,7 +75,7 @@ const Hero = () => {
   const selectedNft = queue[0];
 
   // Ensure we always have at least 2 items to show for the carousel logic
-  const visibleQueue = queue.slice(0, 2);
+  const visibleQueue = queue.slice(0, 3);
 
   const handleThumbnailClick = (clickedIndex: number) => {
     // If clicking the first item (Active), do nothing
@@ -106,21 +106,52 @@ const Hero = () => {
     }
   };
 
+  const handleNextPreview = () => {
+    if (queue.length < 2) return;
+    const newQueue = [...queue.slice(1), queue[0]];
+    setQueue(newQueue);
+  };
+
   return (
     <section className="hero-section animate-fade-in">
       <div className="hero-meta-section animate-slide-up delay-1">
-        <div className="meta-tag">[ SERIES: STASIS MK.I ]</div>
-        <div className="meta-tag">[ SERIES ]</div>
+        <div className="meta-tag">[ DROP: GENESIS 01 ]</div>
+        <div className="meta-tag">[ CHAIN: ETH MAINNET ]</div>
       </div>
 
       <div className="hero-layout">
         {/* Left Side: Product Info */}
         <div className="hero-product-details animate-slide-up delay-2">
+          <div className="hero-badges">
+            <span className="hero-badge hero-badge-live">LIVE DROP</span>
+            <span className="hero-badge">1,111 SUPPLY</span>
+            <span className="hero-badge">ON-CHAIN PROVENANCE</span>
+          </div>
           <h1 className="hero-main-display">
-            COLLECTION
-            <br />
-            ARTIC 01<sup>™</sup>
+            CITYSCAPE
+            <span className="hero-title-accent">GENESIS</span>
           </h1>
+          <p className="hero-subtitle">
+            Iconic music legends reimagined as cinematic city estates.
+          </p>
+          <p className="hero-description">
+            Each NFT is a hand-crafted 1/1 skyline portrait with verified
+            provenance, premium detail, and collector-grade scarcity.
+          </p>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="stat-label">Floor</span>
+              <span className="stat-value">2.2 ETH</span>
+            </div>
+            <div className="hero-stat">
+              <span className="stat-label">Owners</span>
+              <span className="stat-value">812</span>
+            </div>
+            <div className="hero-stat">
+              <span className="stat-label">Royalties</span>
+              <span className="stat-value">5%</span>
+            </div>
+          </div>
 
           <div className="selector-group">
             <span className="selector-title">TRAITS</span>
@@ -181,7 +212,11 @@ const Hero = () => {
                 )}
               </span>
             </button>
+            <a className="hero-secondary-btn" href="#collection">
+              VIEW COLLECTION
+            </a>
             <div className="buy-text">
+              <span className="buy-label">PRICE</span>
               <span className="buy-price">{selectedNft.price}</span>
             </div>
           </div>
@@ -189,39 +224,73 @@ const Hero = () => {
 
         {/* Center: Character Display */}
         <div className="hero-character-display animate-fade-in delay-3">
-          <div className="character-image-box">
-            <Image
-              src={selectedNft.image}
-              alt="Featured Product"
-              width={500}
-              height={700}
-              priority
-              className="animate-fade-in"
-              key={selectedNft.id} // Re-render on change
-            />
+          <div className="hero-preview-card">
+            <div className="hero-preview-glow" />
+            <div className="hero-preview-frame">
+              <Image
+                src={selectedNft.image}
+                alt="Featured Product"
+                width={500}
+                height={700}
+                priority
+                className="hero-preview-img"
+                key={selectedNft.id} // Re-render on change
+              />
+            </div>
+            <div className="hero-preview-info">
+              <span className="preview-label">FEATURED NFT</span>
+              <span className="preview-name">{selectedNft.name}</span>
+              <span className="preview-price">{selectedNft.price}</span>
+            </div>
           </div>
         </div>
 
-        {/* Right: Thumbnails */}
         <div className="hero-thumbnails-panel animate-slide-up delay-4">
-          <div className="thumb-list">
+          <div className="gallery-header">
+            <div>
+              <span className="gallery-kicker">CURATED PREVIEW</span>
+              <h3 className="gallery-title">Next Mints</h3>
+            </div>
+            <button className="gallery-next-btn" onClick={handleNextPreview}>
+              NEXT
+            </button>
+          </div>
+          <div className="gallery-spotlight">
+            <div className="gallery-spotlight-frame">
+              <Image
+                src={selectedNft.image}
+                alt={selectedNft.name}
+                width={240}
+                height={320}
+                quality={100}
+              />
+            </div>
+            <div className="gallery-spotlight-info">
+              <span className="spotlight-label">SELECTED</span>
+              <span className="spotlight-name">{selectedNft.name}</span>
+              <span className="spotlight-trait">{selectedNft.trait}</span>
+              <span className="spotlight-price">{selectedNft.price}</span>
+            </div>
+          </div>
+          <div className="gallery-rail">
             {visibleQueue.map((nft, index) => (
-              <div
+              <button
                 key={nft.id}
-                className={`thumb-card ${index === 0 ? "active" : ""}`}
+                className={`gallery-thumb ${index === 0 ? "active" : ""}`}
                 onClick={() => handleThumbnailClick(index)}
+                type="button"
               >
                 <Image
                   src={nft.image}
                   alt={nft.name}
-                  width={300} /* Request larger image for sharpness */
-                  height={400}
+                  width={220}
+                  height={300}
                   quality={100}
                 />
-              </div>
+                <span className="gallery-thumb-label">{nft.name}</span>
+              </button>
             ))}
           </div>
-          {/* Counter showing ID of Active Element */}
           <div className="thumb-counter">
             {selectedNft.id} — {String(nftData.length).padStart(2, "0")}
           </div>

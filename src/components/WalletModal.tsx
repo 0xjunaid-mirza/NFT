@@ -3,7 +3,6 @@
 import React from 'react';
 import Modal from './Modal';
 import { useWallet } from '@/hooks/useWallet';
-import Image from 'next/image';
 
 interface WalletModalProps {
     isOpen: boolean;
@@ -37,7 +36,7 @@ const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
                 <div className="connected-wallet-info">
                     <div className="wallet-connected-header">
                         <div className="wallet-icon-wrapper">
-                            <Image
+                            <img
                                 src={walletType === 'phantom'
                                     ? "https://phantom.app/img/phantom-logo.svg"
                                     : "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"
@@ -62,14 +61,14 @@ const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => {
                 <div className="wallet-options-grid">
                     <button className="wallet-option-btn" onClick={() => handleConnect('metamask')}>
                         <div className="wallet-icon-wrapper">
-                            <Image src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask" width={40} height={40} />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask" width={40} height={40} />
                         </div>
                         <span className="wallet-name">METAMASK</span>
                     </button>
 
                     <button className="wallet-option-btn" onClick={() => handleConnect('phantom')}>
                         <div className="wallet-icon-wrapper">
-                            <Image src="https://phantom.app/img/phantom-logo.svg" alt="Phantom" width={40} height={40} />
+                            <img src="https://phantom.app/img/phantom-logo.svg" alt="Phantom" width={40} height={40} />
                         </div>
                         <span className="wallet-name">PHANTOM</span>
                     </button>
