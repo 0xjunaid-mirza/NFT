@@ -230,10 +230,8 @@ button {
 
 .chain-switch-btn:hover,
 .chain-switch-btn.open {
-  border-color: rgba(124, 58, 237, 0.7);
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.4),
-    0 0 18px rgba(124, 58, 237, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateY(-2px);
 }
 
@@ -294,7 +292,8 @@ button {
 
 .chain-option:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(124, 58, 237, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateX(2px);
 }
 
@@ -350,9 +349,8 @@ button {
 }
 
 .connect-btn:hover {
-  box-shadow:
-    0 8px 30px rgba(0, 255, 136, 0.6),
-    0 0 40px rgba(124, 58, 237, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateY(-3px) scale(1.02);
 }
 
@@ -630,9 +628,8 @@ button {
 
 .mint-action-btn:hover {
   transform: translateY(-4px) scale(1.03);
-  box-shadow:
-    0 12px 40px rgba(124, 58, 237, 0.7),
-    0 0 50px rgba(0, 255, 136, 0.5);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
 }
 
 .trait-display,
@@ -685,9 +682,9 @@ button {
 }
 
 .hero-secondary-btn:hover {
-  border-color: rgba(0, 221, 119, 0.8);
+  border-color: var(--accent-primary);
   color: #ffffff;
-  box-shadow: 0 0 18px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateY(-2px);
 }
 
@@ -849,8 +846,8 @@ button {
 }
 
 .gallery-next-btn:hover {
-  border-color: rgba(0, 221, 119, 0.8);
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateY(-2px);
 }
 
@@ -991,7 +988,8 @@ button {
 
 .gallery-thumb:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
 }
 
 .gallery-thumb img {
@@ -1181,12 +1179,10 @@ button {
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
-  color: var(--bg-dark);
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
   border-color: var(--accent-primary);
-  box-shadow:
-    0 6px 25px rgba(0, 255, 136, 0.5),
-    0 0 35px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateY(-2px);
 }
 
@@ -1211,7 +1207,7 @@ button {
 .view-all-btn:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateY(-1px);
 }
 
@@ -1282,17 +1278,13 @@ button {
 
 .featured-collection-card:hover::before {
   border-color: var(--accent-primary);
-  box-shadow:
-    0 0 24px rgba(124, 58, 237, 0.5),
-    0 0 18px rgba(0, 221, 119, 0.35);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
 }
 
 .featured-collection-card:hover::after {
   opacity: 1;
   border-color: var(--accent-primary);
-  box-shadow:
-    0 0 14px rgba(124, 58, 237, 0.35),
-    0 0 10px rgba(0, 221, 119, 0.25);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
 }
 
 .featured-collection-card:hover {
@@ -1373,9 +1365,7 @@ button {
 .featured-mint-btn:hover {
   background: linear-gradient(135deg, var(--accent-primary) 0%, #00dd77 100%);
   border-color: var(--accent-primary);
-  box-shadow:
-    0 6px 25px rgba(0, 255, 136, 0.5),
-    0 0 35px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: scale(1.05);
 }
 
@@ -1471,24 +1461,18 @@ button {
 
 .collection-product-card:hover::before {
   border-color: var(--accent-primary);
-  box-shadow:
-    0 0 22px rgba(124, 58, 237, 0.45),
-    0 0 16px rgba(0, 221, 119, 0.3);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
 }
 
 .collection-product-card:hover::after {
   opacity: 1;
   border-color: var(--accent-primary);
-  box-shadow:
-    0 0 12px rgba(124, 58, 237, 0.35),
-    0 0 8px rgba(0, 221, 119, 0.25);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
 }
 
 .collection-product-card:hover {
   transform: translateY(-6px);
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 .nft-image-wrapper {
@@ -1644,9 +1628,8 @@ button {
 }
 
 .quick-buy-btn:hover {
-  box-shadow:
-    0 8px 30px rgba(0, 255, 136, 0.7),
-    0 0 40px rgba(124, 58, 237, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   transform: translateY(-3px) scale(1.02);
 }
 
@@ -1904,9 +1887,7 @@ button {
 
 .faq-item:hover::before {
   border-color: var(--accent-primary);
-  box-shadow:
-    0 0 14px rgba(124, 58, 237, 0.35),
-    0 0 10px rgba(0, 221, 119, 0.24);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
 }
 
 .faq-question {
@@ -2209,6 +2190,7 @@ button {
 
 .wallet-option-btn:hover::before {
   border-color: var(--accent-primary);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45), 0 0 12px rgba(0, 221, 119, 0.28);
   border-width: 1px;
 }
 
